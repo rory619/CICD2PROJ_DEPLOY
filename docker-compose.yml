@@ -82,7 +82,7 @@ services:
     depends_on:
       notifications_api:
         condition: service_started
-    command: python -m app.worker
+    command: python -u -m app.worker
     restart: unless-stopped
 
   notifications_order_worker:
@@ -94,7 +94,7 @@ services:
     depends_on:
       notifications_api:
         condition: service_started
-    command: python -m app.order_worker
+    command: python -u -m app.order_worker
     restart: unless-stopped
 
   notifications_payment_worker:
@@ -106,7 +106,7 @@ services:
     depends_on:
       notifications_api:
         condition: service_started
-    command: python -m app.payment_worker
+    command: python -u -m app.payment_worker
     restart: unless-stopped
 
 volumes:
